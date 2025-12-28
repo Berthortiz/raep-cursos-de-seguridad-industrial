@@ -1,41 +1,69 @@
 ---
-
+import IconCheck from "../components/Icons/IconCheck.astro";
 ---
 
-<section class="w-full h-screen relative text-gray-600 body-font">
-    <!-- Fondo con imagen y overlay -->
-
+<section
+    class="w-full h-fit flex md:items-center relative text-gray-600 body-font"
+>
     <div
-        class="flex lg:gap-12 gap-5 lg:max-w-6xl container mx-auto px-14 pt-44 md:flex-row flex-col items-center relative z-10"
+        class="flex lg:max-w-7xl mx-auto py-10 px-6 md:px-14 md:flex-row flex-col items-center relative z-10"
     >
         <div
-            class="lg:grow md:w-1/2 lg:pr-0 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
+            class="md:w-3/5 md:pr-16 flex flex-col md:justify-center md:items-start md:text-left mb-16 md:mb-0 items-start text-start"
         >
-            <h1
-                class="title-font sm:text-4xl md:text-5xl text-5xl mb-4 font-medium text-(--color-secundary)"
+            <span
+                class="text-[1em] bg-indigo-100 px-3 py-1 rounded-2xl font-medium"
+                >Consectetur adipiscing</span
             >
-                Duis sagittis ipsum. Praesent mauris.
-            </h1>
+            <h2
+                class="title-font sm:text-4xl md:text-5xl text-3xl mb-4 pt-5 font-medium text-(--color-secundary)"
+            >
+                Duis sagittis ipsum. <span class="text-(--color-brand)">
+                    Praesent</span
+                > mauris.
+            </h2>
             <p
-                class="mb-8 leading-relaxed font-light text-gray-700 md:text-[1.1em]"
+                class="mb-8 leading-relaxed font-normal text-[1.1em] text-gray-700"
             >
                 Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent
                 taciti sociosqu ad litora torquent.
             </p>
+            <ul class="flex flex-col gap-4 text-[1.1em]">
+                <li class="flex gap-3">
+                    <span class="fill-current text-(--color-brand) mt-1">
+                        <IconCheck size={22} />
+                    </span>
+                    <div>
+                        <h3 class="font-bold">Sed do eiusmod tempor"</h3>
+                        <p>
+                            Curabitur pretium tincidunt lacus. Nulla gravida
+                            orci a odio.
+                        </p>
+                    </div>
+                </li>
+                <li class="flex gap-3">
+                    <span class="fill-current text-(--color-brand) mt-1">
+                        <IconCheck size={22} />
+                    </span>
+                    <div>
+                        <h3 class="font-bold">
+                            Estrategi qui officia deserunt"
+                        </h3>
+                        <p>Quas, molestiae aperiam incidunt repudiandae</p>
+                    </div>
+                </li>
+            </ul>
+
             <div class="flex justify-center">
-                <a
+                <!-- <a
                     class="inline-flex text-white bg-(--color-brand) border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
                     >Button</a
-                >
-                <a
-                    class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"
-                    >Button</a
-                >
+                > -->
             </div>
         </div>
-        <div class="md:w-1/2 w-5/6">
+        <div class="md:w-2/5 w-5/6">
             <img
-                class="object-cover object-center rounded opacity-0"
+                class="object-cover object-center rounded"
                 alt="hero"
                 src="https://dummyimage.com/720x600"
             />

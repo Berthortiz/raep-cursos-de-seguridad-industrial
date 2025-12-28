@@ -2,7 +2,9 @@
 import bgHeroImg from "../assets/img/pexels-canvastudio-3194518.jpg";
 ---
 
-<section class="w-full h-screen relative text-gray-600 body-font">
+<section
+    class="w-full min-h-140 flex md:items-center relative text-gray-600 body-font"
+>
     <!-- Fondo con imagen y overlay -->
     <div class="absolute inset-0">
         <img
@@ -13,15 +15,15 @@ import bgHeroImg from "../assets/img/pexels-canvastudio-3194518.jpg";
         <div class="absolute inset-0 bg-black opacity-70"></div>
     </div>
 
-    <!-- Contenido principal -->
+    <!-- Contenido parincipal -->
     <div
-        class="flex lg:max-w-6xl container mx-auto px-14 pt-44 md:flex-row flex-col items-center relative z-10"
+        class="flex lg:max-w-7xl mx-auto px-4 md:px-14 py-14 md:flex-row flex-col items-center relative z-10"
     >
         <div
-            class="lg:grow md:w-1/2 lg:pr-0 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
+            class="md:w-3/5 md:pr-16 flex flex-col md:justify-center md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
         >
             <h1
-                class="title-font sm:text-4xl md:text-6xl lg:text-5xl text-3xl mb-4 font-semibold text-gray-100"
+                class="title-font sm:text-4xl md:text-6xl lg:text-5xl text-4xl mb-4 font-semibold text-gray-100"
             >
                 Construyo el sitio web <br /> de tu negocio
             </h1>
@@ -42,9 +44,9 @@ import bgHeroImg from "../assets/img/pexels-canvastudio-3194518.jpg";
                 >
             </div>
         </div>
-        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <div class="md:w-2/5 w-5/6">
             <img
-                class="object-cover object-center rounded opacity-0"
+                class="object-cover object-center rounded opacity-1"
                 alt="hero"
                 src="https://dummyimage.com/720x600"
             />
