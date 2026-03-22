@@ -1,11 +1,14 @@
 ---
 import IconCheck from "../components/Icons/IconCheck.astro";
+import Picture from "astro/components/Picture.astro";
 
 interface Props {
     flexRowRevers?: boolean;
+    bgImg?: string;
 }
 
-const { flexRowRevers = false } = Astro.props;
+const { flexRowRevers = false, bgImg = "/public/images/img-hero.png" } =
+    Astro.props;
 ---
 
 <section
@@ -73,10 +76,16 @@ const { flexRowRevers = false } = Astro.props;
             </div>
         </div>
         <div class="md:w-1/2">
-            <img
-                class="object-cover object-center rounded"
-                alt="hero"
-                src="https://dummyimage.com/720x600"
+            <Picture
+                src={`${bgImg}`}
+                alt="testimonial"
+                width={50}
+                height={50}
+                formats={["webp"]}
+                quality={80}
+                loading="lazy"
+                decoding="async"
+                class="w-full object-contain"
             />
         </div>
     </div>

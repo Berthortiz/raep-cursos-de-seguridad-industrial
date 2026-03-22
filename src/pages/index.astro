@@ -9,19 +9,38 @@ import ReasonsToChooseUs from "../sections/ReasonsToChooseUs.astro";
 import ServicePackages from "../sections/ServicePackages.astro";
 import BannerInfo from "../sections/BannerInfo.astro";
 import Price from "../sections/Price.astro";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Projects from "../sections/Projects.astro";
+import ServiceOptions from "../sections/ServiceOptions.astro";
+import FeactureSectionTwo from "../sections/FeactureSectionTwo.astro";
+import FeactureSectionThree from "../sections/FeactureSectionThree.astro";
+import HeroTwo from "../sections/HeroTwo.astro";
+import ServicesCards from "../sections/ServicesCards.astro";
+
+const title =
+	"Raep - Capacitador en Seguridad Industrial, Empresarial y Prevención de Riesgos";
+const description =
+	"Capacitador especializado en seguridad industrial empresarial y prevención de riesgos. Ofrezco cursos completos que abarcan defensa personal, manejo de químicos, prevención de extorsiones y uso de extintores para proteger tu empresa.";
 ---
 
-<Layout>
+<Layout title={title} description={description}>
 	<Hero />
-	<FeactureSection />
+	<ServicePackages />
 	<ServicesSticky />
+	<FeactureSectionThree />
+	<ServiceOptions />
+	<FeactureSectionTwo />
+	<BannerInfo />
+	<FeactureSection />
 	<Hero />
 	<Testimonials />
 	<ReasonsToChooseUs />
+	<HeroTwo />
 	<ServicePackages />
-	<BannerInfo />
 	<Price />
+
+	<Projects />
+	<ServicesCards />
+
+	<!-- Extras--->
 </Layout>
 <style></style>

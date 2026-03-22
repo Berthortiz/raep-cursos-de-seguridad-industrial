@@ -1,77 +1,139 @@
 ---
-import ButtonWithIcon from "./ButtonWithIcon.astro";
+import { Icon } from "astro-icon/components";
+import Picture from "astro/components/Picture.astro";
 
 const projects = [
-    {
-        id: 1,
-        name_proyect: "Landing Page Corporativa",
-        image: "/images/landing.png",
-        description: "Página corporativa con diseño moderno y responsive.",
-        technologies: [
-            { name: "Astro", icon: "/icons/astro.svg" },
-            { name: "TailwindCSS", icon: "/icons/tailwind.svg" },
-        ],
-        buttons: [
-            {
-                name: "Ver Demo",
-                link: "https://demo.com",
-                icon: "/icons/demo.svg",
-            },
-            {
-                name: "Repositorio",
-                link: "https://github.com/demo",
-                icon: "/icons/github.svg",
-            },
-        ],
-    },
+  {
+    id: 1,
+    name_proyect: "Landing Page Corporativa",
+    image: "../assets/img/projects/maria-martel-realtor.png",
+    description:
+      "Creamos experiencias web que se sienten tan bien como se ven. Un diseño limpio, carga rápida y una adaptación perfecta a cualquier pantalla para que tu marca destaque de forma natural en el mundo digital.",
+    technologies: [
+      {
+        iconName: "icon_wordpress",
+        label: "WordPress",
+      },
+      {
+        iconName: "elementor",
+        label: "Elementor",
+      },
+    ],
+    buttons: [
+      {
+        name: "Ver Web",
+        link: "https://demo.com",
+        icon: "icon-link",
+      },
+      {
+        name: "Quiero Una Igual",
+        link: "https://github.com/demo",
+        icon: "whatsapp-solid",
+      },
+    ],
+  },
 ];
+
+//  technologies: [
+//             {
+//                 iconName: "astro",
+//                 label: "Astro",
+//             }, {
+//                 iconName: "icon_wordpress",
+//                 label: "WordPress",
+//             }, {
+//                 iconName: "elementor",
+//                 label: "Elementor",
+//             },{
+//                 iconName: "tailwind",
+//                 label: "Tailwind",
+//             },
+
+//         ],
 ---
 
-<article id="proyects">
-    <h2>Proyectos Web que He Creado</h2>
-    <p>Estas páginas han sido creadas por mí para algunos de mis clientes</p>
+<article
+  id="proyects"
+  class="lg:max-w-7xl mx-auto bg-black text-white px-6 py-18 lg:pt-16"
+>
+  <h2 class="text-2xl font-black lg:pb-2 md:text-3xl lg:text-4xl text-center ">
+    Proyectos Web que He Creado
+  </h2>
+  <p class="text-center text-gray-400 pb-2 md:pb-2 lg:text-2xl lg:pb-18">
+    Estas páginas han sido creadas por mí para algunos de mis clientes
+  </p>
 
-    <div>
-        {
-            projects.map((item) => (
-                <section class="flex flex-col pb-12 lg:flex-row lg:w-full lg:gap-10">
-                    <div class="w-full flex justify-center rounded-2xl overflow-hidden lg:w-[50%]">
-                        <img
-                            src={item.image}
-                            alt={item.name_proyect}
-                            class="w-full object-contain"
-                        />
-                    </div>
+  <div>
+    {
+      projects.map((item) => (
+        <section class="flex flex-col pb-12 lg:flex-row lg:w-full lg:gap-10">
+          <div class="w-full flex justify-center  lg:w-[50%] ">
+            <Picture
+              src="/public/images/projects/fgconsulting.png"
+              alt="testimonial"
+              width={50}
+              height={50}
+              formats={["webp"]}
+              quality={80}
+              loading="lazy"
+              decoding="async"
+              class="w-full object-contain rounded-2xl overflow-hidden h-fit"
+            />
+            {
+              // galeria de imagenes slider en vercion movil, y pc
+            }
+          </div>
 
-                    <div class="w-full text-left flex flex-col gap-2 pt-3.5 p-3 lg:w-[50%]">
-                        <h2 class="text-[20px] font-bold text-gray-300 lg:text-3xl">
-                            {item.name_proyect}
-                        </h2>
+          <div class="w-full text-left flex flex-col justify-center gap-2 pt-3.5 lg:p-3 lg:w-[50%]">
+            <h2 class="text-[20px] font-bold text-gray-300 lg:text-3xl">
+              {item.name_proyect}
+            </h2>
 
-                        <ul class="flex flex-wrap gap-x-2">
-                            <li>Creada con:</li>
-                            {item.technologies.map((tech) => (
-                                <li class="flex items-center gap-2">
-                                    <p>{tech.name}</p>
-                                    <img src={tech.icon} alt={tech.name} />
-                                </li>
-                            ))}
-                        </ul>
+            <ul class="flex items-center flex-wrap gap-x-2">
+              <li>Creada con:</li>
+              {item.technologies.map((technologie) => {
+                return (
+                  <li>
+                    <Icon name={technologie.iconName} size={16} class="" />
+                    <li>{technologie.label}</li>
+                  </li>
+                );
+              })}
+            </ul>
 
-                        <p class="text-gray-300">{item.description}</p>
+            <p class="text-gray-400">{item.description}</p>
 
-                        <div class="flex gap-4 pt-3">
-                            {item.buttons.map((btn) => (
-                                <ButtonWithIcon
-                                    link={btn.link}
-                                    icon={btn.icon}
-                                    text={btn.name}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            ))
-        }
-    </div>
+            <div class="flex gap-6 pt-3">
+              {item.buttons.map((button) => (
+                <a
+                  href={button.link}
+                  class="btn-project px-4 py-1.5 inline-flex gap-2 rounded text-lg"
+                >
+                  <span class="flex items-center ">
+                    {<Icon name={button.icon} size={20} class="" />}
+                  </span>
+                  {button.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))
+    }
+  </div>
 </article>
+<style>
+  .btn-project:first-child {
+    background-color: var(--color-brand);
+  }
+
+  .btn-project:nth-child(2) {
+    padding: 0;
+    border-radius: 0;
+    line-height: 2;
+  }
+
+  .btn-project:nth-child(2):hover {
+    box-shadow: 0 1px 0 0 rgb(255, 255, 255);
+  }
+</style>

@@ -1,17 +1,18 @@
 ---
-// interface Props {
-// 	title: string;
-// 	description?: string;
-// 	canonical?: string;
-// 	robots?: string;
-// }
+import Header from "../components/Header.astro";
+interface Props {
+	title: string;
+	description?: string;
+	// canonical?: string;
+	// robots?: string;
+}
 
-// const {
-// 	title = "",
-// 	description = "Descrición de la web",
-// 	canonical,
-// 	robots,
-// } = Astro.props;
+const {
+	title = "Raep",
+	description = "Descrición de la web",
+	// canonical,
+	// robots,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,21 +23,25 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="stylesheet" href="/src/css/style.css" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		<title>{title}</title>
 	</head>
 	<body>
+		<Header />
 		<slot />
 	</body>
 </html>
 
 <style is:global>
 	:root {
-		--color-brand: #6366f1; /* color principal de la marca */
+		--color-brand: #0a61bc; /* color principal de la marca */
+		--color-brand-secundary: #db6608; /* color principal de la marca */
+		--color-text-primary: #273951; /* texto principal */
+		--color-secundary: #333;
 
 		--color-highlight: #f59e0b; /* para resaltar botones o links */
 		--color-bg: #ffffff; /* fondo */
 		--color-surface: #f3f4f6; /* tarjetas, secciones */
-		--color-text: #22224a; /* texto principal */
 		--color-secundary: #363636; /* texto secundario */
 		--color-error: #dc2626; /* mensajes de error */
 		--color-success: #16a34a; /* mensajes de éxito */

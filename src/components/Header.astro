@@ -1,0 +1,155 @@
+---
+// Enlaces del menú (puedes personalizarlos)
+const links = [
+    { href: "/", label: "INICIO" },
+    { href: "/2024", label: "Cursos" },
+    { href: "#", label: "certificaciones" },
+    { href: "#", label: "nosotros" },
+];
+---
+
+<header class="header-position black top-0 lg:max-w-7xl m-auto px-6 py-2 z-20">
+    <div class="relative flex justify-between px-6 md:w-full items-center">
+        <div>
+            <a href="/" class="font-bold">
+                <img class="w-22" src="/images/logo-raep.svg" alt="logo" /></a
+            >
+        </div>
+
+        <!-- Desktop nav -->
+        <nav
+            class="hidden md:flex gap-6 items-center"
+            role="navigation"
+            aria-label="Principal"
+        >
+            {
+                links.map((link) => (
+                    <a class="uppercase text-sm" href={link.href}>
+                        {link.label}
+                    </a>
+                ))
+            }
+        </nav>
+
+        <button class="hidden md:inline-flex">Cotizar</button>
+
+        <!-- Botón hamburguesa -->
+        <button
+            id="icon-nav"
+            type="button"
+            class="md:hidden p-2"
+            title="Abrir menú"
+        >
+            <!-- Icono abrir  -->
+            <svg
+                id="icon-open"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="text-orange-50"
+            >
+                <path
+                    d="M4 6h16M4 12h16M4 18h16"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+            <!-- Icono cerrar -->
+            <svg
+                id="icon-close"
+                class="hidden"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="text-orange-50"
+            >
+                <path
+                    d="M6 6l12 12M6 18L18 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile menu  -->
+    <nav
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 right-0 bg-slate-800 flex-col p-6 gap-4 z-10"
+        role="navigation"
+        aria-label="Menú móvil"
+    >
+        {
+            links.map((link) => (
+                <a class="text-orange-50 block" href={link.href}>
+                    {link.label}
+                </a>
+            ))
+        }
+        <button class="mt-2 bg-orange-500 text-white py-2 px-4 rounded w-full"
+            >Cotizar</button
+        >
+    </nav>
+</header>
+
+<script type="module">
+    const btnMovil = document.getElementById("icon-nav");
+    const menu = document.getElementById("mobile-menu");
+    const iconOpen = document.getElementById("icon-open");
+    const iconClose = document.getElementById("icon-close");
+
+    if (btnMovil && menu) {
+        const setMenu = (open) => {
+            menu.classList.toggle("open", open);
+            if (iconOpen && iconClose) {
+                iconOpen.classList.toggle("hidden", open);
+                iconClose.classList.toggle("hidden", !open);
+            }
+        };
+
+        // Alternar al clicar el botón
+        btnMovil.addEventListener("click", () =>
+            setMenu(!menu.classList.contains("open")),
+        );
+
+        // Cerrar al clicar un enlace
+        menu.querySelectorAll("a").forEach((a) =>
+            a.addEventListener("click", () => setMenu(false)),
+        );
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") setMenu(false);
+        });
+
+        // Cerrar al clicar fuera del menú
+        document.addEventListener("click", (e) => {
+            if (!menu.classList.contains("open")) return;
+            const target = e.target;
+            if (!menu.contains(target) && !btnMovil.contains(target))
+                setMenu(false);
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth >= 768 && menu.classList.contains("open")) {
+                setMenu(false);
+            }
+        });
+    }
+</script>
+
+<style>
+    .header-position {
+        position: relative;
+    }
+</style>
+<style is:global>
+    .open {
+        display: flex;
+    }
+</style>

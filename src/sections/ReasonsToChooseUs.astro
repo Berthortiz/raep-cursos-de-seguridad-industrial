@@ -71,7 +71,7 @@ const services = [
         {
             services.map((service) => {
                 return (
-                    <section class="flex flex-col capitalize gap-2 p-8 bg-indigo-100 rounded-2xl">
+                    <section class="flex flex-col gap-2 p-8 bg-indigo-100 rounded-2xl">
                         <Icon
                             name={
                                 service.icon === "" ? "star" : `${service.icon}`
@@ -80,7 +80,9 @@ const services = [
                             class="p-5 bg-white rounded-2xl text-(--color-brand)"
                         />
 
-                        <h2 class="text-2xl font-medium">{service.title}</h2>
+                        <h2 class="capitalize text-2xl font-medium">
+                            {service.title}
+                        </h2>
                         <p class="">{service.description}</p>
                     </section>
                 );
@@ -88,3 +90,42 @@ const services = [
         }
     </div>
 </section>
+
+<style>
+    :root {
+        /* Ajusta según tu paleta */
+        /* --color-brand: #e63946; Color destacado */
+    }
+    h2.title-font {
+        font-family: "Segoe UI", sans-serif;
+        font-weight: 500;
+        text-transform: capitalize;
+        margin-bottom: 1rem;
+        padding-top: 1.25rem;
+        color: var(--color-secundary);
+        line-height: 1.2;
+    }
+    h2.title-font span {
+        color: var(--color-brand);
+    } /* Tamaños responsivos */
+    @media (max-width: 640px) {
+        h2.title-font {
+            font-size: 1.875rem; /* sm:text-3xl */
+        }
+    }
+    @media (min-width: 641px) and (max-width: 768px) {
+        h2.title-font {
+            font-size: 2.25rem; /* md:text-4xl */
+        }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+        h2.title-font {
+            font-size: 2.25rem; /* lg:text-4xl */
+        }
+    }
+    @media (min-width: 1025px) {
+        h2.title-font {
+            font-size: 3.75rem; /* xl:text-6xl */
+        }
+    }
+</style>

@@ -1,10 +1,12 @@
 ---
-import ButtonPrimary from "./ButtonPrimary.astro";
+import ButtonPrimary from "../components/ButtonPrimary.astro";
 import bgHeroImg from "/public/images/raep-background-hero.png";
 import Picture from "astro/components/Picture.astro";
 ---
 
-<section class="hero w-full md:items-center relative text-gray-600 body-font">
+<section
+    class="hero w-full min-h-120 md:items-center relative text-gray-600 body-font"
+>
     <!-- Fondo con imagen y overlay -->
     <!-- <div class="absolute left-0 right-0">
         <img src={bgHeroImg.src} alt="Fondo hero" class="w-full" />
@@ -60,7 +62,7 @@ import Picture from "astro/components/Picture.astro";
             </div>
         </div>
         <div class="md:w-2/5 w-5/6">
-            <Picture
+            <!-- <Picture
                 src="/public/images/img-hero.png"
                 alt="testimonial"
                 width={50}
@@ -70,14 +72,14 @@ import Picture from "astro/components/Picture.astro";
                 loading="lazy"
                 decoding="async"
                 class="w-full object-contain"
-            />
+            /> -->
         </div>
     </div>
 </section>
 
 <style>
     #overlay {
-        backdrop-filter: blur(5px);
+        /* backdrop-filter: blur(5px); */
         padding: 20px;
         border-radius: 8px;
     }
@@ -104,12 +106,15 @@ import Picture from "astro/components/Picture.astro";
         --bg-transparent: 0.78;
         background-image:
             linear-gradient(
-                rgba(0, 0, 0, var(--bg-transparent)),
-                rgba(0, 0, 0, var(--bg-transparent))
+                -45deg,
+                rgba(0, 0, 0, 0.1) 30%,
+                rgba(0, 0, 0, var(--bg-transparent)) 70%
             ),
-            url("/public/images/raep-background-hero.png");
+            url("/public/images/bg-2.png");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
+        background-position: right;
         height: fit-content;
         display: flex;
         align-items: center;
